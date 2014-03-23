@@ -22,15 +22,13 @@ angular.module('app.service.Quiz', [])
 		var _this = this;
 		$http.get("quizes/quiz1.json").success(function(data, status, headers, config){
 			_this.quiz = data;
-			_this.nextQuestion(_this);
-			$rootScope.$apply();
 		});
 	}
 
 	this.receiveAnswer = function(event){
 		var message = event.data;
 		var senderId = event.senderId;
-		answers[senderId] = message;
+		this.answers[senderId] = message;
 
 	}
 

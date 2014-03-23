@@ -32,9 +32,13 @@ angular.module('app.service.Cast', [])
 				break;
 			case "answer":
 				console.log("Player " + senderId + ": Answer Question ID: " + message.questionId + "With Answer Index: " + message.index);
+				QuizService.receiveAnswer(event);
 				break;
 			case "quit":
 				console.log("Player " + senderId + ": Quit Current Game");
+			case "start":
+				console.log("Player " + senderId + ": Start Game");
+				QuizService.nextQuestion(QuizService);
 				break;
 			default:
 				console.log("ERROR: INVALID COMMAND");
