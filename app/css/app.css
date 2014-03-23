@@ -1,0 +1,38 @@
+body {
+	padding: 40px;
+	width: 1280px;
+	height: 720px;
+	overflow: hidden;
+}
+
+/* Wrap */
+#wrap {
+	height: 480px;
+	width: 100%;
+	overflow: hidden;
+}
+
+/* Content */
+#content {
+	height: 100%;
+	width: 100%;
+}
+
+/* Footer */
+#footer {
+	height: 185px;
+}
+
+/* Players */
+.player {
+	height: 100%;
+	color: black;
+	background: yellow;
+	border: 5px solid black;
+}
+.player-name {
+
+}
+.player-score {
+
+}

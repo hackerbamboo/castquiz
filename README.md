@@ -1,4 +1,1 @@
-castquiz
-========
-
-Chrome Cast Quiz Game
+Chromecast Quiz Repo
