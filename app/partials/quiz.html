@@ -1,3 +1,11 @@
+<div>
+	<p>{{ currentQuestion.question }}</p>
+</div>
+<div ng-repeat="choice in currentQuestion.choices" class="row">
+	<div class="col-sm-12 text-center">
+		<p>{{ choice }}</p>
+	</div>
+</div>
 <div ng-repeat="message in messages" class="row">
 	<div class="col-sm-12 text-center">
 		<p>{{ message }}</p>

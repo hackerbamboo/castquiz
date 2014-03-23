@@ -1,6 +1,6 @@
 angular.module('app.service.Cast', [])
 
-.service('CastService', ['$rootScope', function ($rootScope) {
+.service('CastService', ['$rootScope', 'QuizService', function ($rootScope, QuizService) {
 
 	this.messages = [];
 
@@ -25,6 +25,7 @@ angular.module('app.service.Cast', [])
 		{
 			case "newgame":
 				console.log("Player " + senderId + ": New Game with Category: " + message.category);
+				QuizService.loadQuiz();
 				break;
 			case "join":
 				console.log("Player " + senderId + ": Join Game with Name: " + message.name);

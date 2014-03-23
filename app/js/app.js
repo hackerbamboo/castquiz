@@ -3,7 +3,8 @@ angular.module('app', [
 	'app.controller.Main',
 	'app.controller.Quiz',
 	'app.controller.Footer',
-	'app.service.Cast'
+	'app.service.Cast',
+	'app.service.Quiz'
 ])
 .config(['$routeProvider', function($routeProvider) {
 	$routeProvider.when('/quiz', {
