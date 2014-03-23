@@ -4,7 +4,7 @@ angular.module('app.service.Player', [])
 
 	this.players = {};
 	
-	this.setHost(senderId){
+	this.setHost = function(senderId){
 		players[senderId].host = true;
 	}
 
