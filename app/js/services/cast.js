@@ -52,6 +52,11 @@ angular.module('app.service.Cast', [])
 				console.log("Player " + senderId + ": Quit Current Game");
 			case "start":
 				console.log("Player " + senderId + ": Start Game");
+				CastService.broadcastMessage({
+	    			inProgress: "Start",
+	    			version: "1.0.0"
+	    		});
+	    		PlayerService.setHost(senderId);
 				QuizService.nextQuestion(QuizService);
 				break;
 			default:
