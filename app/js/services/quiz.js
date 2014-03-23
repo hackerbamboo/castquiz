@@ -1,9 +1,9 @@
 angular.module('app.service.Quiz', [])
 
-.service('QuizService', ['$rootScope','$http', '$timeout','PlayerService', function ($rootScope, $http, $timeout,$scope,PlayerService) {
+.service('QuizService', ['$rootScope','$http', '$timeout','PlayerService', 'CastService', function ($rootScope, $http, $timeout,$scope,PlayerService, CastService) {
 
 	this.quiz;
-	this.currentQuestion = {"question":"question2","choices":["answer1","answer2","answer3","answer4"], "answer":1};
+	this.currentQuestion = {"question":"question2","answers":["answer1","answer2","answer3","answer4"], "answer":1};
 	this.currentIndex = -1;
 	this.answers = {};
 
@@ -13,10 +13,16 @@ angular.module('app.service.Quiz', [])
 			_this.currentQuestion = _this.quiz.questions[_this.currentIndex];
 			_this.currentQuestion.start = new Date().getTime();
 			_this.answers = {};
+			CastService.broadcastMessage(_this.currentQuestion);
 			$timeout(function(event){
 				_this.updateScores(_this);
 				_this.nextQuestion(_this);
 			}, 30000);
+		} else {
+			CastService.broadcastMessage({
+	    		inProgress: "GameOver",
+	    		version: "1.0.0"
+	    	});
 		}
 	}
 

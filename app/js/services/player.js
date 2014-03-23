@@ -4,6 +4,10 @@ angular.module('app.service.Player', [])
 
 	this.players = {};
 	
+	this.setHost(senderId){
+		players[senderId].host = true;
+	}
+
 	this.playerJoin = function(event){
 		var message = event.data;
 		message.score = 0;
