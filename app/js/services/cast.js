@@ -6,12 +6,26 @@ angular.module('app.service.Cast', [])
 
     this.onSenderConnected = function(event) {
     	console.log("Sender Connected");
-    	console.log(event);
+
+    	var senderId = event.data;
+    	var message = {
+    		inProgress: false,
+    		version: "1.0.0"
+    	};
+    	this.sendMessage(event.data, message);
 	}
 
 	this.onSenderDisconnected = function(event) {
     	console.log("Sender Disconnected");
     	console.log(event);
+	}
+
+	this.sendMessage = function(senderId, message) {
+    	this.castMessageBus.send(senderId, JSON.stringify(message));
+	}
+
+	this.broadcastMessage = function(message) {
+    	this.castMessageBus.broadcast(JSON.stringify(message));
 	}
 
 	this.onMessage = function(event) {
