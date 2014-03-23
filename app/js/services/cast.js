@@ -12,7 +12,7 @@ angular.module('app.service.Cast', [])
     		inProgress: false,
     		version: "1.0.0"
     	};
-    	this.sendMessage(event.data, message);
+    	this.sendMessage(senderId, message);
 	}
 
 	this.onSenderDisconnected = function(event) {

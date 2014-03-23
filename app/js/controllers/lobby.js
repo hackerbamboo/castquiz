@@ -1,5 +1,5 @@
 angular.module('app.controller.Lobby', [])
 
-.controller('LobbyCtrl', ['$scope', function ($scope) {
-	$scope.players = ["JOSH","DAN","MIKE"];
+.controller('LobbyCtrl', ['$scope', 'PlayerService', function ($scope, PlayerService) {
+	$scope.players = PlayerService.players;
 }]);
