@@ -4,7 +4,8 @@ angular.module('app', [
 	'app.controller.Lobby',
 	'app.controller.Quiz',
 	'app.service.Cast',
-	'app.service.Quiz'
+	'app.service.Quiz',
+	'app.service.Player'
 ])
 .config(['$routeProvider', function($routeProvider) {
 	$routeProvider.when('/lobby', {

@@ -5,10 +5,11 @@ angular.module('app.controller.Quiz', [])
 	$scope.messages = CastService.messages;
 	$scope.currentQuestion = QuizService.currentQuestion;
 	$scope.$watch(function () { return QuizService.currentQuestion }, function (newVal, oldVal) {
-    if (typeof newVal !== 'undefined') {
-        $scope.currentQuestion = QuizService.currentQuestion;
-    }
-    
+	    if (typeof newVal !== 'undefined') {
+	        $scope.currentQuestion = QuizService.currentQuestion;
+	    }
+	});
+
 	$scope.player1 = {
 		senderId: 1,
 		name: "Player 1"
