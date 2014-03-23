@@ -1,0 +1,6 @@
+{"title":"Test Quiz","category":"news","questions":[{"question":"What is the first programming assignment?","choices":["hello world","meet java", "facebook", "test"],"answer":0},
+{"question":"question2","choices":["answer1","answer2","answer3","answer4"], "answer":1},
+{"question":"question3","choices":["answer1","answer2","answer3","answer4"], "answer":2},
+{"question":"question4","choices":["answer1","answer2","answer3","answer4"], "answer":3},
+{"question":"question5","choices":["answer1","answer2","answer3","answer4","answer5"], "answer":4},
+{"question":"question2","choices":["answer1","answer2","answer3"], "answer":2}]}
