@@ -5,25 +5,28 @@ body {
 	overflow: hidden;
 }
 
+
 /* Wrap */
 #wrap {
-	height: 480px;
+	height: 100%;
 	width: 100%;
 	overflow: hidden;
 }
 
-/* Content */
-#content {
-	height: 100%;
-	width: 100%;
+
+/* Lobby View */
+.lobby-container {
+
 }
 
-/* Footer */
-#footer {
-	height: 185px;
-}
 
-/* Players */
+/* Quiz View */
+.quiz-container {
+	height: 540px;
+}
+.players-container {
+	height: 100px;
+}
 .player {
 	height: 100%;
 	color: black;

@@ -1,13 +1,33 @@
-<div>
+
+<div class="quiz-container">
 	<p>{{ currentQuestion.question }}</p>
-</div>
-<div ng-repeat="choice in currentQuestion.choices" class="row">
-	<div class="col-sm-12 text-center">
-		<p>{{ choice }}</p>
+	<div ng-repeat="choice in currentQuestion.choices" class="row">
+		<div class="col-sm-12 text-center">
+			<p>{{ choice }}</p>
+		</div>
+	</div>
+	<div ng-repeat="message in messages" class="row">
+		<div class="col-sm-12 text-center">
+			<p>{{ message }}</p>
+		</div>
 	</div>
 </div>
-<div ng-repeat="message in messages" class="row">
-	<div class="col-sm-12 text-center">
-		<p>{{ message }}</p>
+
+<div class="players-container">
+	<div class="col-sm-3 player">
+		<span class="player-score">{{ player1.score }}
+		<span class="player-name">{{ player1.name }}
+	</div>
+	<div class="col-sm-3 player">
+		<span class="player-score">{{ player2.score }}
+		<span class="player-name">{{ player2.name }}
+	</div>
+	<div class="col-sm-3 player">
+		<span class="player-score">{{ player3.score }}
+		<span class="player-name">{{ player3.name }}
+	</div>
+	<div class="col-sm-3 player">
+		<span class="player-score">{{ player4.score }}
+		<span class="player-name">{{ player4.name }}
 	</div>
 </div>
