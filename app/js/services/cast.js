@@ -1,6 +1,6 @@
 angular.module('app.service.Cast', [])
 
-.service('CastService', ['$rootScope', 'QuizService', function ($rootScope, QuizService) {
+.service('CastService', ['$rootScope', 'QuizService', 'PlayerService', function ($rootScope, QuizService, PlayerService) {
 
 	this.messages = [];
 
@@ -19,7 +19,6 @@ angular.module('app.service.Cast', [])
 		var senderId = event.senderId;
 
 		this.messages.push(message);
-		$rootScope.$apply();
 
 		switch(message.command)
 		{
@@ -29,6 +28,7 @@ angular.module('app.service.Cast', [])
 				break;
 			case "join":
 				console.log("Player " + senderId + ": Join Game with Name: " + message.name);
+				PlayerService.playerJoin(event);
 				break;
 			case "answer":
 				console.log("Player " + senderId + ": Answer Question ID: " + message.questionId + "With Answer Index: " + message.index);
@@ -43,6 +43,8 @@ angular.module('app.service.Cast', [])
 			default:
 				console.log("ERROR: INVALID COMMAND");
 		}
+
+		$rootScope.$apply();
 	}
 
 	// Cast Receiver Manager
