@@ -1,6 +1,6 @@
 angular.module('app.service.Cast', [])
 
-.service('CastService', ['$rootScope', 'QuizService', 'PlayerService', function ($rootScope, QuizService, PlayerService) {
+.service('CastService', ['$rootScope', 'QuizService', 'PlayerService', 'MessageService', function ($rootScope, QuizService, PlayerService, MessageService) {
 
 	this.messages = [];
 
@@ -9,23 +9,14 @@ angular.module('app.service.Cast', [])
 
     	var senderId = event.data;
     	var message = {
-    		inProgress: false,
-    		version: "1.0.0"
+    		gameState : QuizService.gameState
     	};
-    	this.sendMessage(senderId, message);
+    	MessageService.sendMessage(senderId, message);
 	}
 
 	this.onSenderDisconnected = function(event) {
     	console.log("Sender Disconnected");
     	console.log(event);
-	}
-
-	this.sendMessage = function(senderId, message) {
-    	this.castMessageBus.send(senderId, JSON.stringify(message));
-	}
-
-	this.broadcastMessage = function(message) {
-    	this.castMessageBus.broadcast(JSON.stringify(message));
 	}
 
 	this.onMessage = function(event) {
@@ -52,12 +43,9 @@ angular.module('app.service.Cast', [])
 				console.log("Player " + senderId + ": Quit Current Game");
 			case "start":
 				console.log("Player " + senderId + ": Start Game");
-				CastService.broadcastMessage({
-	    			inProgress: "Start",
-	    			version: "1.0.0"
-	    		});
 	    		PlayerService.setHost(senderId);
 				QuizService.nextQuestion(QuizService);
+				console.log(JSON.stringify(PlayerService.players))
 				break;
 			default:
 				console.log("ERROR: INVALID COMMAND");
@@ -73,6 +61,7 @@ angular.module('app.service.Cast', [])
 
     // Cast Receiver Message Bus
     this.castMessageBus = this.castReceiverManager.getCastMessageBus('urn:x-cast:com.google.cast.sample.helloworld', cast.receiver.CastMessageBus.MessageType.JSON);
+    MessageService.castMessageBus = this.castMessageBus;
     this.castMessageBus.onMessage = this.onMessage.bind(this);
 
     // Start Cast Receiving
