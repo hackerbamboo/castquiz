@@ -1,41 +1,104 @@
 body {
-	padding: 40px;
 	width: 1280px;
 	height: 720px;
-	overflow: hidden;
+	background: linear-gradient(to bottom, #7abcff 0%,#60abf8 44%,#4096ee 100%);
+	color: white;
+	font-size: 35px;
+	text-shadow: 2px 2px 5px #000;
+	overflow: hidden !important;
 }
-
-
-/* Wrap */
-#wrap {
-	height: 100%;
+.full-size {
 	width: 100%;
-	overflow: hidden;
+	height: 100%;
+}
+
+/* === Title View === */
+.title-container {
+
+}
+.title-text {
+
 }
 
 
-/* Lobby View */
+/* === Lobby View === */
 .lobby-container {
 
 }
 
 
-/* Quiz View */
+/* === Quiz View === */
 .quiz-container {
-	height: 540px;
-}
-.players-container {
-	height: 100px;
-}
-.player {
-	height: 100%;
-	color: black;
-	background: yellow;
-	border: 5px solid black;
-}
-.player-name {
 
 }
-.player-score {
+.quiz-left {
+	width: 70%;
+	height: 85%;
+	float: left;
+}
+.quiz-right {
+	width: 30%;
+	height: 85%;
+	float: left;
+}
+
+/* Header */
+.header-container {
+	height: 15%;
+}
+.header-title {
+
+}
+
+/* Question */
+.question-container {
+	height: 40%;
+	margin: 5%;
+	background: #e5e5e5;
+}
+.question {
+	color: black;
+	text-shadow: none;
+}
+
+/* Answers */
+.answers-container {
+	height: 45%;
+}
+.answer {
+	width: 40%;
+	background: #e5e5e5;
+	color: black;
+	text-shadow: none;
+	box-shadow: 5px 5px 10px 0px #000;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	margin-left: 5%;
+	margin-right: 5%;
+	float: left;
+	padding: 2%;
+	text-align: center;
+}
+
+/* Scoreboard */
+.scoreboard-container {
+
+}
+.scoreboard-title {
+
+}
+.scoreboard-score {
+
+}
+.scoreboard-name {
+
+}
+
+
+/* === Winner View === */
+.winner-container {
+
+}
+.winner-text {
 
 }

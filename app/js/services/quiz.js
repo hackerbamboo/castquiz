@@ -28,7 +28,7 @@ angular.module('app.service.Quiz', [])
 			$timeout(function(event){
 				_this.updateScores(_this);
 				_this.nextQuestion(_this);
-			}, 30000);
+			}, 300000);
 		} else {
 			_this.gameState = "GAME_OVER";
 			MessageService.broadcastMessage({gameState:_this.gameState})

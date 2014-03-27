@@ -1,33 +1,52 @@
+<div class="full-size" ng-switch on="gameState">
 
-<div class="quiz-container">
-	<p>{{ currentQuestion.question }}</p>
-	<div ng-repeat="choice in currentQuestion.choices" class="row">
-		<div class="col-sm-12 text-center">
-			<p>{{ choice }}</p>
-		</div>
+	<div ng-switch-when="TITLE" class="title-container full-size">
+		<div class="title-text">Welcome to Quiz Cast<br>Start a Game to Begin!</div>
 	</div>
-	<div ng-repeat="message in messages" class="row">
-		<div class="col-sm-12 text-center">
-			<p>{{ message }}</p>
-		</div>
-	</div>
-</div>
 
-<div class="players-container">
-	<div class="col-sm-3 player">
-		<span class="player-score">{{ player1.score }}
-		<span class="player-name">{{ player1.name }}
+	<div ng-switch-when="LOBBY" class="lobby-container full-size">
+		<p>Lobby View</p>
 	</div>
-	<div class="col-sm-3 player">
-		<span class="player-score">{{ player2.score }}
-		<span class="player-name">{{ player2.name }}
+
+	<div ng-switch-when="STARTED" class="quiz-container full-size">
+
+		<div class="header-container">
+			<span class="header-title">Quiz Cast by Michael Allon</span>
+			<span class="header-timer">{{ timer }}</span>
+		</div>
+
+		<div class="quiz-left">
+
+			<div class="question-container">
+				<p class="question">{{ currentQuestion.question }}</p>
+			</div>
+
+			<div class="answers-container">
+				<div class="answer">{{ currentQuestion.choices[0] }}</div>
+				<div class="answer">{{ currentQuestion.choices[1] }}</div>
+				<div class="answer">{{ currentQuestion.choices[2] }}</div>
+				<div class="answer">{{ currentQuestion.choices[3] }}</div>
+			</div>
+
+		</div>
+		<div class="quiz-right">
+
+			<div class="scoreboard-container">
+				<span class="scoreboard-title">Scoreboard</span>
+	            <ul ng-repeat='(key, prop) in players track by key'>
+	                <li>
+	                	<span class="scoreboard-score">{{ players[key].score }}</span>
+	                	<span class="scoreboard-name">{{ players[key].name }}</span>
+	                </li>
+	            </ul>
+			</div>
+
+		</div>
+
 	</div>
-	<div class="col-sm-3 player">
-		<span class="player-score">{{ player3.score }}
-		<span class="player-name">{{ player3.name }}
+
+	<div ng-switch-when="GAME_OVER" class="winner-container full-size">
+		<div class="winner-text">{{ winner }} has won the game!</div>
 	</div>
-	<div class="col-sm-3 player">
-		<span class="player-score">{{ player4.score }}
-		<span class="player-name">{{ player4.name }}
-	</div>
+
 </div>
