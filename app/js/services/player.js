@@ -19,5 +19,9 @@ angular.module('app.service.Player', [])
 		this.players[senderId] += score;
 	}
 
+	this.clearPlayers = function(){
+		this.players = {};
+	}
+
 
 }]);

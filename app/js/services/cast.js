@@ -29,6 +29,8 @@ angular.module('app.service.Cast', [])
 		{
 			case "newgame":
 				console.log("Player " + senderId + ": New Game with Category: " + message.category);
+				PlayerService.playerJoin(event);
+				PlayerService.setHost(senderId);
 				QuizService.loadQuiz();
 				break;
 			case "join":
@@ -43,7 +45,6 @@ angular.module('app.service.Cast', [])
 				console.log("Player " + senderId + ": Quit Current Game");
 			case "start":
 				console.log("Player " + senderId + ": Start Game");
-	    		PlayerService.setHost(senderId);
 				QuizService.nextQuestion(QuizService);
 				console.log(JSON.stringify(PlayerService.players))
 				break;

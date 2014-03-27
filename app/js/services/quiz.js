@@ -8,6 +8,11 @@ angular.module('app.service.Quiz', [])
 	this.answers = {};
 	this.gameState = "TITLE";
 
+	function OutBoundQuizQuestion(question) {
+	  this.question = question.question;
+	  this.choices = question.choices;
+	}
+
 	this.nextQuestion = function(_this) {
 		if(this.currentIndex === -1){
 			_this.gameState = "STARTED";
@@ -18,6 +23,7 @@ angular.module('app.service.Quiz', [])
 		if(_this.currentIndex < _this.quiz.questions.length){
 			_this.currentQuestion = _this.quiz.questions[_this.currentIndex];
 			_this.currentQuestion.start = new Date().getTime();
+			MessageService.broadcastMessage(new OutBoundQuizQuestion(_this.currentQuestion))
 			_this.answers = {};
 			$timeout(function(event){
 				_this.updateScores(_this);
@@ -26,6 +32,7 @@ angular.module('app.service.Quiz', [])
 		} else {
 			_this.gameState = "GAME_OVER";
 			MessageService.broadcastMessage({gameState:_this.gameState})
+			PlayerService.clearPlayers();
 		}
 	}
 
@@ -33,11 +40,13 @@ angular.module('app.service.Quiz', [])
 		for (sender in _this.answers){
 			var ans = _this.answers[sender];
 			var score = _this.time - currentQuestion.start;
+			var correct = true;
 			if(ans.answer != currentQuestion.answer){
 				score *= -1;
+				correct = false;
 			}
 			PlayerService.updateScores(sender, score);
-
+			MessageService.sendMessage(sender, {score:score,correct:correcti})
 		}
 	}
 
@@ -46,6 +55,7 @@ angular.module('app.service.Quiz', [])
 		$http.get("quizes/quiz1.json").success(function(data, status, headers, config){
 			_this.quiz = data;
 		});
+		this.currentIndex = -1;
 		this.gameState = "LOBBY";
 		MessageService.broadcastMessage({gameState : _this.gameState});
 	}
