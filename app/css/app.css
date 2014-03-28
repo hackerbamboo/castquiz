@@ -1,41 +1,115 @@
 body {
-	padding: 40px;
 	width: 1280px;
 	height: 720px;
-	overflow: hidden;
+	background: linear-gradient(to bottom, #7abcff 0%,#60abf8 44%,#4096ee 100%);
+	color: white;
+	overflow: hidden !important;
 }
 
 
-/* Wrap */
-#wrap {
-	height: 100%;
+/* === Helpers === */
+.full-size {
 	width: 100%;
-	overflow: hidden;
-}
-
-
-/* Lobby View */
-.lobby-container {
-
-}
-
-
-/* Quiz View */
-.quiz-container {
-	height: 540px;
-}
-.players-container {
-	height: 100px;
-}
-.player {
 	height: 100%;
+}
+.tan-box {
+	box-shadow: 5px 5px 10px 0px #000;
+	background: #e5e5e5;
 	color: black;
-	background: yellow;
-	border: 5px solid black;
 }
-.player-name {
-
+.big-shadow-font {
+	font-size: 35px;
+	text-shadow: 2px 2px 5px #000;
 }
-.player-score {
 
+
+/* === Title View === */
+.title-text {
+	margin-top: 25%;
+	text-align: center;
+}
+
+
+/* === Lobby View === */
+.lobby-text {
+	margin-top: 25%;
+	text-align: center;
+}
+
+
+/* === Quiz View === */
+.quiz-left {
+	width: 70%;
+	height: 85%;
+	float: left;
+}
+.quiz-right {
+	width: 30%;
+	height: 85%;
+	float: left;
+}
+
+/* Header */
+.header-container {
+	height: 15%;
+	margin-left: 5%;
+	width: 90%;
+}
+.header-title {
+	width: 50%;
+	float: left;
+}
+.header-timer {
+	width: 50%;
+	float: left;
+}
+
+/* Question */
+.question-container {
+	height: 40%;
+	margin: 5%;
+	padding: 15px;
+}
+.question {
+	font-size: 25px;
+}
+
+/* Answers */
+.answers-container {
+	height: 45%;
+}
+.answer {
+	width: 40%;
+	font-size: 25px;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	margin-left: 5%;
+	margin-right: 5%;
+	float: left;
+	padding: 2%;
+	text-align: center;
+}
+
+/* Scoreboard */
+.scoreboard-container {
+	height: 90%;
+	margin: 5%;
+	padding: 15px;
+}
+.scoreboard-title {
+	font-size: 35px;
+	text-align: center;
+}
+.scoreboard-score {
+	font-size: 25px;
+}
+.scoreboard-name {
+	font-size: 25px;
+}
+
+
+/* === Winner View === */
+.winner-text {
+	margin-top: 25%;
+	text-align: center;
 }

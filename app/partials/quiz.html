@@ -1,23 +1,51 @@
+<div class="full-size" ng-switch on="gameState">
 
-<div class="quiz-container">
-	<p>{{ currentQuestion.question }}</p>
-	<div ng-repeat="choice in currentQuestion.choices" class="row">
-		<div class="col-sm-12 text-center">
-			<p>{{ choice }}</p>
-		</div>
+	<div ng-switch-when="TITLE" class="full-size">
+		<div class="title-text big-shadow-font">Welcome to Quiz Cast<br>Start a Game to Begin!</div>
 	</div>
-	<div ng-repeat="message in messages" class="row">
-		<div class="col-sm-12 text-center">
-			<p>{{ message }}</p>
-		</div>
+	<div ng-switch-when="LOBBY" class="full-size">
+		<div class="lobby-text big-shadow-font">Lobby View</div>
 	</div>
-</div>
 
-<div class="lobby-container">
-	<div ng-repeat='(key, prop) in players track by key'>
-        <div class="col-sm-3 text-center">
-			<span class="player-score">{{ players[key].score }}
-			<span class="player-name">{{ players[key].name }}
+	<div ng-switch-when="STARTED" class="full-size">
+
+		<div class="header-container">
+			<div class="header-title big-shadow-font">Quiz Cast by Michael Allon</div>
+			<div class="header-timer">{{ timer }}</div>
 		</div>
+
+		<div class="quiz-left">
+
+			<div class="question-container tan-box">
+				<p class="question">{{ currentQuestion.question }}</p>
+			</div>
+
+			<div class="answers-container">
+				<div class="answer tan-box">{{ currentQuestion.choices[0] }}</div>
+				<div class="answer tan-box">{{ currentQuestion.choices[1] }}</div>
+				<div class="answer tan-box">{{ currentQuestion.choices[2] }}</div>
+				<div class="answer tan-box">{{ currentQuestion.choices[3] }}</div>
+			</div>
+
+		</div>
+		<div class="quiz-right">
+
+			<div class="scoreboard-container tan-box">
+				<div class="scoreboard-title">Scoreboard</div>
+	            <ul ng-repeat='(key, prop) in players track by key'>
+	                <li>
+	                	<span class="scoreboard-score">{{ players[key].score }}</span>
+	                	<span class="scoreboard-name">{{ players[key].name }}</span>
+	                </li>
+	            </ul>
+			</div>
+
+		</div>
+
 	</div>
+
+	<div ng-switch-when="GAME_OVER" class="full-size">
+		<div class="winner-text big-shadow-font">{{ winner }} has won the game!</div>
+	</div>
+
 </div>
