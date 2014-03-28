@@ -8,7 +8,7 @@ angular.module('app', [
 	'app.service.Player',
 	'app.service.Message'
 ])
-.config(['$routeProvider', function($routeProvider) {
+.config(['$routeProvider','$locationProvider', function($routeProvider,$locationProvider) {
 	$routeProvider.when('/lobby', {
 		templateUrl: 'partials/lobby.html',
 		controller: 'LobbyCtrl'
@@ -18,4 +18,5 @@ angular.module('app', [
 	}).otherwise({
 		redirectTo: '/lobby'
 	});
+	//$locationProvider.html5Mode(true);
 }]);

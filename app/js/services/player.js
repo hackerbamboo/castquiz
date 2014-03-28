@@ -16,7 +16,7 @@ angular.module('app.service.Player', [])
 	}
 
 	this.updateScore = function(senderId, points){
-		this.players[senderId] += score;
+		this.players[senderId].score += points;
 	}
 
 	this.clearPlayers = function(){

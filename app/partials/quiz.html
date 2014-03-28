@@ -13,21 +13,11 @@
 	</div>
 </div>
 
-<div class="players-container">
-	<div class="col-sm-3 player">
-		<span class="player-score">{{ player1.score }}
-		<span class="player-name">{{ player1.name }}
-	</div>
-	<div class="col-sm-3 player">
-		<span class="player-score">{{ player2.score }}
-		<span class="player-name">{{ player2.name }}
-	</div>
-	<div class="col-sm-3 player">
-		<span class="player-score">{{ player3.score }}
-		<span class="player-name">{{ player3.name }}
-	</div>
-	<div class="col-sm-3 player">
-		<span class="player-score">{{ player4.score }}
-		<span class="player-name">{{ player4.name }}
+<div class="lobby-container">
+	<div ng-repeat='(key, prop) in players track by key'>
+        <div class="col-sm-3 text-center">
+			<span class="player-score">{{ players[key].score }}
+			<span class="player-name">{{ players[key].name }}
+		</div>
 	</div>
 </div>

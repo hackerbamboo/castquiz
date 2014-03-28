@@ -1,6 +1,7 @@
 angular.module('app.service.Cast', [])
 
-.service('CastService', ['$rootScope', 'QuizService', 'PlayerService', 'MessageService', function ($rootScope, QuizService, PlayerService, MessageService) {
+.service('CastService', ['$rootScope', 'QuizService', 'PlayerService', 'MessageService', '$location', '$window',
+ function ($rootScope, QuizService, PlayerService, MessageService, $location, $window) {
 
 	this.messages = [];
 
@@ -32,6 +33,7 @@ angular.module('app.service.Cast', [])
 				PlayerService.playerJoin(event);
 				PlayerService.setHost(senderId);
 				QuizService.loadQuiz();
+				$location.url("/lobby");
 				break;
 			case "join":
 				console.log("Player " + senderId + ": Join Game with Name: " + message.name);
@@ -45,6 +47,7 @@ angular.module('app.service.Cast', [])
 				console.log("Player " + senderId + ": Quit Current Game");
 			case "start":
 				console.log("Player " + senderId + ": Start Game");
+				$location.url("/quiz");
 				QuizService.nextQuestion(QuizService);
 				console.log(JSON.stringify(PlayerService.players))
 				break;

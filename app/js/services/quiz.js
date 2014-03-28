@@ -39,14 +39,14 @@ angular.module('app.service.Quiz', [])
 	this.updateScores = function(_this) {
 		for (sender in _this.answers){
 			var ans = _this.answers[sender];
-			var score = _this.time - currentQuestion.start;
+			var score = ans.time - _this.currentQuestion.start;
 			var correct = true;
-			if(ans.answer != currentQuestion.answer){
+			if(ans.answer != _this.currentQuestion.answer){
 				score *= -1;
 				correct = false;
 			}
-			PlayerService.updateScores(sender, score);
-			MessageService.sendMessage(sender, {score:score,correct:correcti})
+			PlayerService.updateScore(sender, score);
+			MessageService.sendMessage(sender, {score:score,correct:correct})
 		}
 	}
 
@@ -64,7 +64,7 @@ angular.module('app.service.Quiz', [])
 		var message = event.data;
 		message.time = new Date().getTime();
 		var senderId = event.senderId;
-		answers[senderId] = message;
+		this.answers[senderId] = message;
 
 	}
 
