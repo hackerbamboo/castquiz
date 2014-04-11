@@ -1,115 +1,282 @@
+
 body {
-	width: 1280px;
-	height: 720px;
-	background: linear-gradient(to bottom, #7abcff 0%,#60abf8 44%,#4096ee 100%);
-	color: white;
-	overflow: hidden !important;
+
+    width: 1280px;
+
+    height: 720px;
+
+    background: linear-gradient(to bottom, #7abcff 0%, #60abf8 44%, #4096ee 100%);
+
+    color: white;
+
+    overflow: hidden !important;
+
+    margin: 0 auto;
+
 }
 
+.2-delay {
+
+    animation-delay:2s;
+
+    -webkit-animation-delay: 2s;
+
+}
+
+.3-delay {
+
+    -webkit-animation-delay: 3s;
+
+}
+
+.scoreboard-name.correct-add {
+
+    -webkit-animation:1s disable-on;
+
+    animation:1s disable-on;
+
+}
+
+@keyframes disable-on {
+
+    0%, 100% {
+
+        color: black;
+
+    }
+
+    50% {
+
+        color: green;
+
+    }
+
+}
+
+@-webkit-keyframes disable-on {
+
+    0%, 100% {
+
+        color: black;
+
+    }
+
+    50% {
+
+        color: green;
+
+    }
+
+}
 
 /* === Helpers === */
+
 .full-size {
-	width: 100%;
-	height: 100%;
-}
-.tan-box {
-	box-shadow: 5px 5px 10px 0px #000;
-	background: #e5e5e5;
-	color: black;
-}
-.big-shadow-font {
-	font-size: 35px;
-	text-shadow: 2px 2px 5px #000;
+
+    width: 100%;
+
+    height: 100%;
+
 }
 
+.tan-box {
+
+    box-shadow: 5px 5px 10px 0px #000;
+
+    background: #e5e5e5;
+
+    color: black;
+
+}
+
+.title-relative {
+
+    position:relative;
+
+    margin: 0 auto;
+
+}
+
+.big-shadow-font {
+
+    font-size: 35px;
+
+    text-shadow: 2px 2px 5px #000;
+
+}
 
 /* === Title View === */
-.title-text {
-	margin-top: 25%;
-	text-align: center;
-}
 
+.title-text {
+
+    height: 100px;
+
+    margin-top: 10%;
+
+    font-family: goofy;
+
+    text-align: center;
+
+}
 
 /* === Lobby View === */
-.lobby-text {
-	margin-top: 25%;
-	text-align: center;
-}
 
+.lobby-text {
+
+    margin-top: 25%;
+
+    text-align: center;
+
+}
 
 /* === Quiz View === */
+
 .quiz-left {
-	width: 70%;
-	height: 85%;
-	float: left;
+
+    width: 70%;
+
+    height: 85%;
+
+    float: left;
+
 }
+
 .quiz-right {
-	width: 30%;
-	height: 85%;
-	float: left;
+
+    width: 30%;
+
+    height: 85%;
+
+    float: left;
+
 }
 
 /* Header */
+
 .header-container {
-	height: 15%;
-	margin-left: 5%;
-	width: 90%;
+
+    height: 15%;
+
+    margin-left: 5%;
+
+    width: 90%;
+
 }
+
 .header-title {
-	width: 50%;
-	float: left;
+
+    width: 50%;
+
+    float: left;
+
 }
+
 .header-timer {
-	width: 50%;
-	float: left;
+
+    width: 50%;
+
+    float: left;
+
 }
 
 /* Question */
+
 .question-container {
-	height: 40%;
-	margin: 5%;
-	padding: 15px;
+
+    height: 40%;
+
+    margin: 5%;
+
+    padding: 15px;
+
 }
+
 .question {
-	font-size: 25px;
+
+    font-size: 25px;
+
 }
 
 /* Answers */
+
 .answers-container {
-	height: 45%;
+
+    height: 45%;
+
 }
+
 .answer {
-	width: 40%;
-	font-size: 25px;
-	margin-top: 2%;
-	margin-bottom: 2%;
-	margin-left: 5%;
-	margin-right: 5%;
-	float: left;
-	padding: 2%;
-	text-align: center;
+
+    width: 40%;
+
+    font-size: 25px;
+
+    margin-top: 2%;
+
+    margin-bottom: 2%;
+
+    margin-left: 5%;
+
+    margin-right: 5%;
+
+    float: left;
+
+    padding: 2%;
+
+    text-align: center;
+
 }
 
 /* Scoreboard */
+
 .scoreboard-container {
-	height: 90%;
-	margin: 5%;
-	padding: 15px;
-}
-.scoreboard-title {
-	font-size: 35px;
-	text-align: center;
-}
-.scoreboard-score {
-	font-size: 25px;
-}
-.scoreboard-name {
-	font-size: 25px;
+
+    height: 90%;
+
+    margin: 5%;
+
+    padding: 15px;
+
 }
 
+.scoreboard-title {
+
+    font-size: 35px;
+
+    text-align: center;
+
+}
+
+.scoreboard-score {
+
+    font-size: 25px;
+
+}
+
+.scoreboard-name {
+
+    font-size: 25px;
+
+}
 
 /* === Winner View === */
+
 .winner-text {
-	margin-top: 25%;
-	text-align: center;
+
+    margin-top: 25%;
+
+    text-align: center;
+
+}
+
+@font-face {
+
+    font-family:'goofy';
+
+    /*a name to be used later*/
+
+    src: url('../fonts/DimWitRight.ttf');
+
+    /*URL to font*/
+
 }

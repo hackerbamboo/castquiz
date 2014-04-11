@@ -1,22 +1,27 @@
 <!doctype html>
 <html lang="en" ng-app="app">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Chromecast Quiz</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/reset.css"/>
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
 
-  </head>
-  <body>
+</head>
+
+<body ng-controller="QuizCtrl as quiz">
 
     <!-- Content -->
-    <div class="full-size" ng-view></div>
+    <div class="container" ng-view></div>
 
     <!-- Libraries -->
+    <script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
     <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/animate.js"></script>
     <script src="lib/angular/angular-route.min.js"></script>
     <script src="lib/angular/angular-animate.min.js"></script>
     <script src="lib/cast_receiver.js"></script>
@@ -32,10 +37,10 @@
     <script src="js/services/quiz.js"></script>
     <script src="js/services/player.js"></script>
     <script src="js/services/message.js"></script>
-
+    <script>
     <!-- Filters -->
 
     <!-- Directives -->
 
-  </body>
-</html>
+    < /body>
+</html >

@@ -1,6 +1,37 @@
-{"title":"Test Quiz","category":"news","questions":[{"question":"What is the first programming assignment?","choices":["hello world","meet java", "facebook", "test"],"answer":0},
-{"question":"question2","choices":["answer1","answer2","answer3","answer4"], "answer":1},
-{"question":"question3","choices":["answer1","answer2","answer3","answer4"], "answer":2},
-{"question":"question4","choices":["answer1","answer2","answer3","answer4"], "answer":3},
-{"question":"question5","choices":["answer1","answer2","answer3","answer4","answer5"], "answer":4},
-{"question":"question2","choices":["answer1","answer2","answer3"], "answer":2}]}
+{
+    "title": "Test Quiz",
+    "category": "geography",
+    "questions": [{
+        "question": "Pilbara is a religion in which Australian state?",
+        "choices": ["Western Australia",
+            "Queensland",
+            "New South Wales",
+            "Tasmania"
+        ],
+        "answer": 0
+    }, {
+        "question": "The Eiffel Tower is located where in Paris?",
+        "choices": ["Bois de Boulogne",
+            "Champ de Mars",
+            "Jardin des Plantes",
+            "Parc de Belleville"
+        ],
+        "answer": 1
+    }, {
+        "question": "Which Apollo mission landed the first humans on the Moon?",
+        "choices": ["Apollo 7",
+            "Apollo 9",
+            "Apollo 11",
+            "Apollo 13"
+        ],
+        "answer": 2
+    }, {
+        "question": "Who starred in the 1959 epic film 'Ben-Hur'?",
+        "choices": ["Charlton Heston",
+            "Clark Gable",
+            "Errol Flynn",
+            "Lee Marvin"
+        ],
+        "answer": 0
+    }]
+}

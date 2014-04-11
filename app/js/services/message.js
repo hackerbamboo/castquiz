@@ -7,12 +7,12 @@ angular.module('app.service.Message', [])
 
 	this.sendMessage = function(senderId, message) {
 		message.version = this.version;
-    	this.castMessageBus.send(senderId, JSON.stringify(message));
+    	this.castMessageBus.send(senderId, message);
 	}
 
 	this.broadcastMessage = function(message) {
 		message.version = this.version;
-    	this.castMessageBus.broadcast(JSON.stringify(message));
+    	this.castMessageBus.broadcast(message);
 	}
 
 }]);
