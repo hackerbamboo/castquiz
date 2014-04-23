@@ -1,4 +1,5 @@
 <div class="row" ng-switch on="gameState">
+    <div style="opacity:0;width:20%;top:50%;left:40%;position:fixed;background:black;z-index:1;text-align:center" id="question-splash">QUESTION 1</div>
 
     <div ng-switch-when="NONTHING" class="full-size">
 
@@ -13,32 +14,32 @@
 
 
     </div>
-    <div ng-switch-when="LOBBY" class="row ng-pulse">
+    <div ng-switch-when="LOBBY" class="fadeDown row">
 
-        <div class="col-xs-8 lobby-text">
+        <div class="col-md-8 lobby-text">
             <div class="row">
-                <div class="col-xs-12 big-shadow-font">A new game has been created!</div>
+                <div class="col-md-12 big-shadow-font">A new game has been created!</div>
             </div>
             <div class="row">
-                <div class="col-xs-12 big-shadow-font">Once all of the players have joined press start!</div>
+                <div class="col-md-12 big-shadow-font">Once all of the players have joined press start!</div>
             </div>
         </div>
-        <div class="col-xs-4">
+
+        <div class="col-md-4">
 
             <div class="scoreboard-container tan-box">
                 <div class="scoreboard-title">Scoreboard</div>
-                <ul ng-repeat='(key, prop) in players track by key'>
-                    <li id="{{key}}">
-                        <span class="scoreboard-score">{{ players[key].score }}</span>
-                        <span class="scoreboard-name">{{ players[key].name }}</span>
-                        <img style="height:30px" ng-if="players[key].answered" src="images/check.ico" />
-                    </li>
-                </ul>
-            </div>
+                <div ng-repeat='(key, prop) in players track by key' class="row" id="{{ players[key].name }}">
+                    <div class="col-md-2 scoreboard-score">{{ players[key].score }}</div>
+                    <div class="col-md-8 scoreboard-name">{{ players[key].name }}</div>
+                    <img class="col-md-2" style="height:30px" ng-if="players[key].answered" src="images/check.ico" />
 
+                </div>
+            </div>
         </div>
+
     </div>
-    <div ng-switch-when="STARTED" class="full-size">
+    <div ng-switch-when="STARTED" class="fadeDown full-size">
 
         <div class="row">
             <div class="col-md-8">Quiz Cast by Michael Allon</div>
@@ -51,25 +52,24 @@
                     <p class="question">{{ currentQuestion.question }}</p>
                 </div>
 
-                <div class="answers-container">
-                    <div class="answer tan-box">{{ currentQuestion.choices[0] }}</div>
-                    <div class="answer tan-box">{{ currentQuestion.choices[1] }}</div>
-                    <div class="answer tan-box">{{ currentQuestion.choices[2] }}</div>
-                    <div class="answer tan-box">{{ currentQuestion.choices[3] }}</div>
+                <div class="answer-container">
+                    <div ng-repeat='choice in currentQuestion.choices' class="my-repeat-animation answer tan-box">
+                        {{ choice }}
+                    </div>
                 </div>
+
 
             </div>
             <div class="col-md-4">
 
                 <div class="scoreboard-container tan-box">
                     <div class="scoreboard-title">Scoreboard</div>
-                    <ul ng-repeat='(key, prop) in players track by key'>
-                        <li>
-                            <span class="scoreboard-score">{{ players[key].score }}</span>
-                            <span ng-class="players[key].flair" class="scoreboard-name">{{ players[key].name }}</span>
-                            <img style="height:30px" ng-if="players[key].answered" src="images/check.ico" />
-                        </li>
-                    </ul>
+                    <div ng-repeat='(key, prop) in players track by key' class="row player-row" id="{{ players[key].name }}">
+                        <div class="col-md-2 scoreboard-score">{{ players[key].score }}</div>
+                        <div class="col-md-8 scoreboard-name">{{ players[key].name }}</div>
+                        <img class="col-md-2" style="height:30px" ng-if="players[key].answered" src="images/check.ico" />
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -78,6 +78,14 @@
 
     <div ng-switch-when="GAME_OVER" class="full-size">
         <div class="winner-text big-shadow-font">{{ winner }} has won the game!</div>
+        <div>
+            <div ng-repeat="display in displayPlayer" class="my-repeat-animation">
+                <div>Name: {{display.name}}</div>
+                <div>Score: {{display.score}}</div>
+                <div>Correct Answers: {{display.correct}}</div>
+                <div>Incorrect Answers: {{display.incorrect}}</div>
+            </div>
+        </div>
     </div>
 
 </div>

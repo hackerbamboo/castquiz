@@ -1,9 +1,10 @@
 angular.module('app.service.Player', [])
 
-.service('PlayerService', ['$rootScope', 'MessageService', '$animate',
-    function($rootScope, MessageService, $animate) {
+.service('PlayerService', ['$rootScope', 'MessageService', '$animate', '$timeout',
+    function($rootScope, MessageService, $animate, $timeout) {
 
         this.players = {};
+        this.displayPlayer = [];
 
         function QuizPlayer(event) {
             this.name = event.data.name;
@@ -56,28 +57,60 @@ angular.module('app.service.Player', [])
         }
 
         this.updateScore = function(senderId, points, seconds, correct) {
-            this.players[senderId].score += points;
+            _this = this;
             if (correct) {
-                this.players[senderId].correct++;
+                _this.players[senderId].correct++;
             } else {
-                this.players[senderId].incorrect++;
+                _this.players[senderId].incorrect++;
             }
-            if (seconds < this.players[senderId].fastestAnswer) {
-                this.players[senderId].fastestAnswer = seconds
+            if (seconds < _this.players[senderId].fastestAnswer) {
+                _this.players[senderId].fastestAnswer = seconds
             }
 
-            if (seconds > this.players[senderId].slowestAnswer) {
-                this.players[senderId].slowestAnswer = seconds
+            if (seconds > _this.players[senderId].slowestAnswer) {
+                _this.players[senderId].slowestAnswer = seconds
             }
-            this.players[senderId].answered = false;
-            $animate.addClass($("#" + senderId), "correct", function() {
-                $animate.removeClass($("#" + senderId), "correct")
-            });
-
+            _this.players[senderId].answered = false;
+            _this.players[senderId].score += points;
+            if (correct) {
+                $animate.addClass($("#" + _this.players[senderId].name), "correct", function() {
+                    $animate.removeClass($("#" + _this.players[senderId].name), "correct")
+                });
+            }
         }
+
 
         this.clearPlayers = function() {
             this.players = {};
+        }
+
+        this.cyclePlayers = function() {
+            _this = this;
+            var playerList = [];
+            for (id in this.players) {
+                playerList.push(this.players[id]);
+            }
+            this.show(_this, playerList, -1);
+        }
+
+        this.show = function(_this, playerList, index) {
+
+            index++;
+            if (index > playerList.length) {
+                index = 0;
+            }
+            _this.timerPromise = $timeout(function(event) {
+                _this.displayPlayer[0] = playerList[index];
+                _this.hide(_this, playerList, index);
+            }, 600);
+        }
+
+        this.hide = function(_this, playerList, index) {
+
+            _this.timerPromise = $timeout(function(event) {
+                _this.displayPlayer = [];
+                _this.show(_this, playerList, index);
+            }, 600);
         }
 
 

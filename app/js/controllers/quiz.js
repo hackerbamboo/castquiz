@@ -25,6 +25,15 @@ angular.module('app.controller.Quiz', ['ngAnimate'])
             }
         });
 
+        $scope.displayPlayer = PlayerService.displayPlayer;
+        $scope.$watch(function() {
+            return PlayerService.displayPlayer
+        }, function(newVal, oldVal) {
+            if (typeof newVal !== 'undefined') {
+                $scope.displayPlayer = PlayerService.displayPlayer;
+            }
+        });
+
         $scope.winner = PlayerService.winner;
         $scope.$watch(function() {
             return PlayerService.winner

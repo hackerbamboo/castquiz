@@ -1,4 +1,6 @@
 
+@import url("my-animations.css");
+
 body {
 
     width: 1280px;
@@ -15,55 +17,125 @@ body {
 
 }
 
-.2-delay {
+.answer.correct-answer-add {
+    -webkit-animation: 3s correct;
 
-    animation-delay:2s;
-
-    -webkit-animation-delay: 2s;
-
-}
-
-.3-delay {
-
-    -webkit-animation-delay: 3s;
+    animation: 3s correct;
 
 }
 
-.scoreboard-name.correct-add {
+#question-splash.new-question-add {
+    -webkit-animation: 3s bounceIn;
 
-    -webkit-animation:1s disable-on;
-
-    animation:1s disable-on;
+    animation: 3s bounceIn;
 
 }
 
-@keyframes disable-on {
+#question-splash.new-question-remove {
+    -webkit-animation: 1s hide;
 
-    0%, 100% {
+    animation: 1s hide;
 
-        color: black;
+}
+
+.correct-add {
+    -webkit-animation: 3s correct-player;
+
+    animation: 3s correct-player;
+
+}
+
+.my-repeat-animation.ng-enter {
+
+    -webkit-animation: 0.5s fadeIn;
+
+    animation: 0.5s fadeIn;
+
+}
+
+.my-repeat-animation.ng-leave {
+
+    -webkit-animation: 0.5s fadeOut;
+
+    animation: 0.5s fadeOut;
+
+}
+
+.answer.ng-hide-add {
+
+    -webkit-animation:0.5s hide;
+
+    animation:0.5s hide;
+
+}
+
+@keyframes hide {
+
+    from {
+
+        opacity:1;
 
     }
 
-    50% {
+    to {
 
-        color: green;
+        opacity:0;
 
     }
 
 }
 
-@-webkit-keyframes disable-on {
+@-webkit-keyframes hide {
 
-    0%, 100% {
+    from {
 
-        color: black;
+        opacity:1;
 
     }
 
-    50% {
+    to {
 
-        color: green;
+        opacity:0;
+
+    }
+
+}
+
+.answer.ng-hide-remove {
+
+    -webkit-animation:0.5s show;
+
+    animation:0.5s show;
+
+}
+
+@keyframes show {
+
+    from {
+
+        opacity:0;
+
+    }
+
+    to {
+
+        opacity:1;
+
+    }
+
+}
+
+@-webkit-keyframes show {
+
+    from {
+
+        opacity:0;
+
+    }
+
+    to {
+
+        opacity:1;
 
     }
 
@@ -83,7 +155,7 @@ body {
 
     box-shadow: 5px 5px 10px 0px #000;
 
-    background: #e5e5e5;
+    background: rgba(229, 229, 229, 1);
 
     color: black;
 
@@ -251,11 +323,15 @@ body {
 
     font-size: 25px;
 
+    text-align: center;
+
 }
 
 .scoreboard-name {
 
     font-size: 25px;
+
+    text-align: center;
 
 }
 

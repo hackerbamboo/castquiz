@@ -1,0 +1,214 @@
+@-webkit-keyframes correct {
+
+    0% {
+
+        opacity: 0;
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+    }
+
+}
+
+@keyframes correct {
+
+    0% {
+        background: rgba(229, 229, 229, 1);
+        color: rgba(0, 0, 0, 1);
+        opacity: 0;
+
+    }
+
+    100% {
+
+        background: rgba(0, 130, 0, 1);
+        color: rgba(0, 204, 0, 1);
+        opacity: 1;
+
+    }
+
+}
+
+@-webkit-keyframes correct {
+
+    0% {
+        background: rgba(229, 229, 229, 1);
+        color: rgba(0, 0, 0, 1);
+
+    }
+
+    50%, 100% {
+
+        background: rgba(0, 130, 0, 1);
+        color: rgba(0, 204, 0, 1);
+
+    }
+
+}
+
+@-webkit-keyframes bounceIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(.3);
+        transform: scale(.3);
+    }
+    50% {
+        opacity: 1;
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+    }
+    70% {
+        -webkit-transform: scale(.9);
+        transform: scale(.9);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(.3);
+        -ms-transform: scale(.3);
+        transform: scale(.3);
+    }
+    50% {
+        opacity: 1;
+        -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        transform: scale(1.05);
+    }
+    70% {
+        -webkit-transform: scale(.9);
+        -ms-transform: scale(.9);
+        transform: scale(.9);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes correct-player {
+
+    0% {
+        background: rgba(229, 229, 229, 0);
+        color: rgba(0, 0, 0, 1);
+        opacity: 0;
+
+    }
+
+    100% {
+
+        background: rgba(0, 130, 0, 1);
+        color: rgba(0, 204, 0, 1);
+        opacity: 1;
+
+    }
+
+}
+
+@-webkit-keyframes correct-player {
+
+    0% {
+        background: rgba(229, 229, 229, 0);
+        color: rgba(0, 0, 0, 1);
+
+    }
+
+    50%, 100% {
+
+        background: rgba(0, 130, 0, 1);
+        color: rgba(0, 204, 0, 1);
+
+    }
+
+}
+
+@keyframes fadeIn {
+
+    0% {
+
+        opacity: 0;
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+    }
+
+}
+
+@-webkit-keyframes fadeIn {
+
+    0% {
+
+        opacity: 0;
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+    }
+
+}
+
+@keyframes fadeIn {
+
+    0% {
+
+        opacity: 0;
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+    }
+
+}
+
+@-webkit-keyframes fadeOut {
+
+    0% {
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+    }
+
+}
+
+@keyframes fadeOut {
+
+    0% {
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+    }
+
+}
